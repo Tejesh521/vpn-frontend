@@ -68,15 +68,11 @@
       const selectedServer = document.getElementById("serverList").value;
       const status = document.getElementById("status");
 
-      status.innerText = "Connecting...";
-
-      fetch("https://vpn-backend-zikp.onrender.com/connect", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ server: selectedServer })
-      })
+      fetch("https://your-render-backend-url.onrender.com/connect", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ server: selectedServer })
+})
         .then((response) => response.json())
         .then((data) => {
           if (data.message) {
